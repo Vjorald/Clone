@@ -1,0 +1,29 @@
+public class Test {
+
+	public static void main(String[] args) {
+		Kunde kd1 = new Kunde ("Hugo Meier", "Hauptstr. 12, 40880 Ratingen");
+		
+		Konto kto1 = new Konto(4711, 10000.);
+		kto1.setKunde(kd1);
+		
+		Konto kto2 = kto1.clone();  //flache Kopie
+		
+		System.out.println("Before: ");
+        System.out.println(kto2.getKtoId());
+        System.out.println(kto2.getSaldo());
+        System.out.println(kto2.getKunde().getName());
+        System.out.println(kto2.getKunde().getAdresse());
+        
+        //Change of Kunde-Object that in kto1 referenced is
+        kd1.setAdresse("Hauptstr. 42, 40880 Ratingen");
+        
+        System.out.println();
+        System.out.println("After: ");
+        System.out.println(kto2.getKtoId());
+        System.out.println(kto2.getKtoId());
+        System.out.println(kto2.getSaldo());
+        System.out.println(kto2.getKunde().getName());
+        System.out.println(kto2.getKunde().getAdresse());
+	}
+
+}
